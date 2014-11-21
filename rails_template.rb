@@ -179,6 +179,10 @@ inside 'app' do
     inside 'javascripts' do
       gsub_file "application.js", /^\/\/=\s+require\s+turbolinks.*$/,''
     end
+    inside 'stylesheets' do
+      remove_file 'applications.css'
+      copy_file 'application.sass'
+    end
   end
   inside 'views' do
     inside 'layouts' do
@@ -186,6 +190,7 @@ inside 'app' do
       template 'application.html.slim.erb', 'application.html.slim'
     end
   end
+
 end
 
 directory 'lib/generators/decorator'
