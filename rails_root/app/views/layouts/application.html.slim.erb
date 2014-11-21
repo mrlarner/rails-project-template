@@ -1,0 +1,25 @@
+doctype html
+html lang="#{I18n.locale}"
+  head
+    title <%= @app_name %>
+    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+
+    = stylesheet_link_tag 'application', media: 'all'      
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+  body class="#{controller.controller_name}-#{controller.action_name} #{yield(:body_class)}"
+    nav
+      - if user_signed_in?
+        p Hi #{current_user}
+        = link_to "Welcome", edit_user_password_path
+      - else
+        = link_to "Login", new_user_session_path
+
+    h1 Welcome to <%= @app_name %>
+
+    .messages
+      p.notice
+        = notice
+      p.alert
+        = alert
