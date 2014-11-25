@@ -104,6 +104,7 @@ CODE
 
 # bower
 generate 'bower_rails:initialize'
+copy_file 'Bowerfile'
 rake 'bower:install'
 
 # cap
