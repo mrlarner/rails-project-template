@@ -30,3 +30,6 @@ end
 #     @post = PostPresenter.new(post, view_context)
 #   end
 # end
+
+# in view
+# @post.published_at?
